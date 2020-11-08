@@ -1,0 +1,19 @@
+#citySearch{
+    float: left;
+}
+
+.heading{
+
+    color:white;
+    size: 100pt;
+    text-align: center;
+    padding:20px;
+    background-color: rgba(7, 4, 44, 0.678);
+    
+
+}
+
+#stateRows{
+    margin-left: 15px;
+
+}
