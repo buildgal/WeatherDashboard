@@ -1,6 +1,5 @@
 $(document ).ready(function(){
 let searchBtn= $("#searchBtn");
-let apiCallBtn=$("#apiCallBtn");
 let cityList=[];
 
 function displayCity (){
@@ -18,14 +17,16 @@ function displayCity (){
 
 }
 
-
-
 searchBtn.on("click", function(event) {
     event.preventDefault();
     let city=$("#cityInput").val();
     cityList.push(city);
     displayCity();
+    let currentCity=$("#cityHead");
+    let todaysDate=moment().format("MMM Do YY"); 
+    currentCity.append(city+": "+todaysDate);
 
+    
     let apiKey="afde9c2bc8e7dd302ea99cab374498c7";
     //let apiCity=city.val();
     
@@ -76,8 +77,9 @@ searchBtn.on("click", function(event) {
 
         //Day 1 
         elDay1=$("#date1");
-        dateDay1=response.list[0].dt;
+        dateDay1=moment().add(1, 'days').calendar();
         elDay1.append(dateDay1);
+        //parse out the time "at"
 
         //Day 1 Temp 
         elTemp1=$("#temp1");
@@ -93,7 +95,7 @@ searchBtn.on("click", function(event) {
         
         //Day 2 
         elDay2=$("#date2");
-        dateDay2=response.list[1].dt;
+        dateDay2=moment().add(2, 'days').calendar();
         elDay2.append(dateDay2);
 
         //Day 2 Temp 
@@ -109,7 +111,7 @@ searchBtn.on("click", function(event) {
 
         //Day 3      
         elDay3=$("#date3");
-        dateDay3=response.list[2].dt;
+        dateDay3=moment().add(3, 'days').calendar();
         elDay3.append(dateDay3);
 
         //Day 3 Temp 
@@ -125,7 +127,7 @@ searchBtn.on("click", function(event) {
 
         //Day 4 
         elDay4=$("#date4");
-        dateDay4=response.list[3].dt;
+        dateDay4=moment().add(4, 'days').calendar();
         elDay4.append(dateDay4);
 
         //Day 4 Temp 
@@ -141,7 +143,7 @@ searchBtn.on("click", function(event) {
 
         //Day5 
         elDay5=$("#date5");
-        dateDay5=response.list[4].dt;
+        dateDay5=moment().add(5, 'days').calendar();
         elDay5.append(dateDay5);
 
         //Day 5 Temp 
@@ -153,15 +155,17 @@ searchBtn.on("click", function(event) {
         //Day 5 Hum
         elHum5=$("#hum5");
         dataHum5=response.list[4].main.humidity;
-        elHum5.append(dataHum5);     
-
-
-              
-    
- 
-    
+        elHum5.append(dataHum5);        
 });
 
 });
 
 });
+
+
+//oustanding task 
+
+/*
+- make a function of converting the tempature 
+- do a loop of 5 on the search button that displays the forcast 
+*/
