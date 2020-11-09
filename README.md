@@ -32,3 +32,4 @@ Open Weather 5 Day Forcast [https://openweathermap.org/forecast5]
 Weather Dashboard [https://buildgal.github.io/WeatherDashboard/]
 
 ## Screenshot 
+![image] (./Assets/screenshot.png)
