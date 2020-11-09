@@ -1,14 +1,36 @@
-//$( document ).ready()
+$(document ).ready(function(){
 let searchBtn= $("#searchBtn");
 let apiCallBtn=$("#apiCallBtn");
+let cityList=[];
+
+function displayCity (){
+    $("#dropCity").empty();
+    for (let i = 0; i < cityList.length; i++) {
+        let box= $("<li>");
+        // Adding a class of movie to our button
+        box.addClass("list-group-item");
+        box.attr("data-name", cityList[i]);
+        // Providing the initial button text
+        box.text(cityList[i]);
+        // Adding the button to the HTML
+        $("#dropCity").append(box);
+      }
+
+}
 
 
-apiCallBtn.on("click", function() {
+
+searchBtn.on("click", function(event) {
+    event.preventDefault();
+    let city=$("#cityInput").val();
+    cityList.push(city);
+    displayCity();
+
     let apiKey="afde9c2bc8e7dd302ea99cab374498c7";
-    let apiCity="Minneapolis";
+    //let apiCity=city.val();
     
     let queryURL="http://api.openweathermap.org/data/2.5/weather?q="+
-    apiCity+"&appid="+
+    city+"&appid="+
     apiKey+"&units=standard";
    
     $.ajax({
@@ -41,7 +63,7 @@ apiCallBtn.on("click", function() {
 
 //5 DAY FORCAST
     let forcastURL="http://api.openweathermap.org/data/2.5/forecast?q="+
-    apiCity+"&appid="+
+    city+"&appid="+
     apiKey+"&units=standard";
 
     $.ajax({
@@ -60,7 +82,8 @@ apiCallBtn.on("click", function() {
         //Day 1 Temp 
         elTemp1=$("#temp1");
         dataTemp1=response.list[0].main.temp;
-        elTemp1.append(dataTemp1);
+        day1Temp=Math.floor((dataTemp1-273.15)*1.8+32);
+        elTemp1.append(day1Temp);
 
         //Day 1 Humidity
         elHum1=$("#hum1");
@@ -76,7 +99,8 @@ apiCallBtn.on("click", function() {
         //Day 2 Temp 
         elTemp2=$("#temp2");
         dataTemp2=response.list[1].main.temp;
-        elTemp2.append(dataTemp2);
+        dayTemp2=Math.floor((dataTemp2-273.15)*1.8+32);
+        elTemp2.append(dayTemp2);
 
         //Day 2 Hum
         elHum2=$("#hum2");
@@ -91,7 +115,8 @@ apiCallBtn.on("click", function() {
         //Day 3 Temp 
         elTemp3=$("#temp3");
         dataTemp3=response.list[2].main.temp;
-        elTemp3.append(dataTemp3);
+        dayTemp3=Math.floor((dataTemp3-273.15)*1.8+32);
+        elTemp3.append(dayTemp3);
 
         //Day 3 Hum
         elHum3=$("#hum3");
@@ -106,7 +131,8 @@ apiCallBtn.on("click", function() {
         //Day 4 Temp 
         elTemp4=$("#temp4");
         dataTemp4=response.list[3].main.temp;
-        elTemp4.append(dataTemp4);
+        dayTemp4=Math.floor((dataTemp3-273.15)*1.8+32);
+        elTemp4.append(dayTemp4);
 
         //Day 4 Hum
         elHum4=$("#hum4");
@@ -121,7 +147,8 @@ apiCallBtn.on("click", function() {
         //Day 5 Temp 
         elTemp5=$("#temp5");
         dataTemp5=response.list[4].main.temp;
-        elTemp5.append(dataTemp5);
+        dayTemp5=Math.floor((dataTemp3-273.15)*1.8+32);
+        elTemp5.append(dayTemp5);
 
         //Day 5 Hum
         elHum5=$("#hum5");
@@ -130,63 +157,11 @@ apiCallBtn.on("click", function() {
 
 
               
-
+    
  
     
-})
+});
 
 });
 
-
-//main.humidity
-//wind.speed
-
-//1604879590 
-
-//search for a city 
-
-//call the API 
-
-//pull out the data from the API 
-
-//display the icon based off the weather 
-//if rain then show clouds 
-
-//show the index 
-
-   /*
-    let apiKey="afde9c2bc8e7dd302ea99cab374498c7";
-    let apiCity="London";
-    let apiCountry="uk";
-    let queryURL="http://api.openweathermap.org/data/2.5/weather?q="+apiCity+","+apiCountry+"&APPID="+apiKey;
-    console.log(queryURL);
-
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-      })
-
-      .then(function(response) {
-
-        console.log(response);
-
-
-        let unix_timestamp = 1549312452
-// Create a new JavaScript Date object based on the timestamp
-// multiplied by 1000 so that the argument is in milliseconds, not seconds.
-var date = new Date(unix_timestamp * 1000);
-// Hours part from the timestamp
-var hours = date.getHours();
-// Minutes part from the timestamp
-var minutes = "0" + date.getMinutes();
-// Seconds part from the timestamp
-var seconds = "0" + date.getSeconds();
-
-// Will display time in 10:30:23 format
-var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-
-console.log(formattedTime);
-https://stackoverflow.com/questions/847185/convert-a-unix-timestamp-to-time-in-javascript
-
-
- });*/
+});
