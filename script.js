@@ -31,6 +31,7 @@ searchBtn.on("click", function(event) {
     let todaysDate=moment().format("MMM Do YY"); 
         currentCity.text(city+": "+todaysDate);
 
+//API CALL TO BRING BACK THE CURRENT DAY'S WEATHER 
     let apiKey="afde9c2bc8e7dd302ea99cab374498c7";
     let queryURL="http://api.openweathermap.org/data/2.5/weather?q="+
     city+"&appid="+
@@ -68,8 +69,7 @@ searchBtn.on("click", function(event) {
         let weatherImg="http://openweathermap.org/img/wn/"+datawIcon+"@2x.png";
         elwIcon.attr("src", weatherImg);
 
-
-        //making the call to get the UV INDEX
+ //making the call to get the UV INDEX
         let lat=response.coord.lat;      
         let lon=response.coord.lon;
 
@@ -82,9 +82,22 @@ searchBtn.on("click", function(event) {
           })
     
           .then(function(response) {
-            elUvIndex=$("#uvIndex");
-            dataUV=response.value;
+            let elUvIndex=$("#uvIndex");
+            let dataUV=response.value;
             elUvIndex.text("UV Index: "+ dataUV);
+            let uvBox=$("#uvBox");
+            if (dataUV>7){
+                uvBox.css("background-color","red");             
+            }
+
+            else if(dataUV>3 && dataUV<8 ){
+                uvBox.css("background-color","yellow");
+            }
+
+            else if(dataUV<3){
+                uvBox.css("background-color","green");
+            }
+            
       })
     })
 

@@ -26,6 +26,9 @@ Open Weather Current Day [https://openweathermap.org/current]
 ### 5 Day Forcast
 Open Weather 5 Day Forcast [https://openweathermap.org/forecast5]
 
+### Ultra Violet Light Index 
+https://www.epa.gov/sunsafety/uv-index-scale-0#:~:text=3%20to%207%3A%20Moderate%20to,%2Dbrimmed%20hat%2C%20and%20sunglasses.
+
 
 ## Live Link 
 
