@@ -26,22 +26,25 @@ Most of the javascript is triggered once the user inputs a city name and then se
 In the script I leaverage Moment.js to set up the current date and time. The city searched is saved in local storage. The cards are populated by the various API Calls. There are a total of 3 API calls made in this project. 
 
 ### Current Day Weather 
-Open Weather Current Day [https://openweathermap.org/current]
 In order to display the data I naviagate the documentation to pull the data. 
+Open Weather Current Day [https://openweathermap.org/current]
 
 ### 5 Day Forcast
-Open Weather 5 Day Forcast [https://openweathermap.org/forecast5]
 In order to display the data I naviagate the documentation to pull the data. 
+Open Weather 5 Day Forcast [https://openweathermap.org/forecast5]
+
 
 ### Ultra Violet Light Index 
-[https://www.epa.gov/sunsafety/uv-index-scale-0#:~:text=3%20to%207%3A%20Moderate%20to,%2Dbrimmed%20hat%2C%20and%20sunglasses]
-
 The UV Index element on the page requires another API call because it does not return the data on the Current Day Weather call. In order for this API call to work the latitude and the longitude from the first call is pulled and then used to the UV API Call. In order for theses call to succeed they have been nested.
 
+The UV Index has will display red when the UV index is below 3, yellow when it is between 3 and 7, and if it is greater than 7 it will display red. This table was determined by the following scale.
+
+[https://www.epa.gov/sunsafety/uv-index-scale-0#:~:text=3%20to%207%3A%20Moderate%20to,%2Dbrimmed%20hat%2C%20and%20sunglasses]
 
 ## Live Link 
 
-Weather Dashboard [https://buildgal.github.io/WeatherDashboard/]as
+Weather Dashboard [https://buildgal.github.io/WeatherDashboard/]
+
 
 ## Screenshot 
 ![image](../Assets/screenshot.png)

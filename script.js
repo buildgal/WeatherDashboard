@@ -11,12 +11,11 @@ function displayCity (){
         box.attr("data-name", cityList[i]);
         // Providing the initial button text
         box.text(cityList[i]);
+        box.attr("id","box"+[i]);
         // Adding the button to the HTML
         $("#dropCity").append(box);
       }
-
 }
-
 
 searchBtn.on("click", function(event) {
     event.preventDefault();
@@ -25,8 +24,7 @@ searchBtn.on("click", function(event) {
         
     let city=$("#cityInput").val();
         cityList.push(city);
-        displayCity();
-
+        displayCity();   
 
     let todaysDate=moment().format("MMM Do YY"); 
         currentCity.text(city+": "+todaysDate);
