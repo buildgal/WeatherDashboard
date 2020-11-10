@@ -1,5 +1,7 @@
 # WeatherDashboard
 
+In this Weather Dashboard I am making various API calls and using JavaScript and jQuery to format the data. The user is asked to input a name for a city and then the current forcast is displayed. Then a 5 day forcast is produced. This repository leverages Bootstrap, Moment, and Font Awesome. 
+
 ## Given Acceptance Critieria 
 * GIVEN a weather dashboard with form inputs
 * WHEN I search for a city
@@ -15,24 +17,31 @@
 * I open the weather dashboard
 * I am presented with the last searched city forecast
 
-
 ## Description of HTML 
+Using Bootstrap I leverage the card functionality and the navigation bar. The search card functionality stories the cities that are entered and lists them. The large card on the UI displays the current days weather in the city. The 5 day forcast displays the city entered.
+
+Most of the javascript is triggered once the user inputs a city name and then selects the search button.
 
 ## Description of Javascript 
+In the script I leaverage Moment.js to set up the current date and time. The city searched is saved in local storage. The cards are populated by the various API Calls. There are a total of 3 API calls made in this project. 
 
 ### Current Day Weather 
 Open Weather Current Day [https://openweathermap.org/current]
+In order to display the data I naviagate the documentation to pull the data. 
 
 ### 5 Day Forcast
 Open Weather 5 Day Forcast [https://openweathermap.org/forecast5]
+In order to display the data I naviagate the documentation to pull the data. 
 
 ### Ultra Violet Light Index 
-https://www.epa.gov/sunsafety/uv-index-scale-0#:~:text=3%20to%207%3A%20Moderate%20to,%2Dbrimmed%20hat%2C%20and%20sunglasses.
+[https://www.epa.gov/sunsafety/uv-index-scale-0#:~:text=3%20to%207%3A%20Moderate%20to,%2Dbrimmed%20hat%2C%20and%20sunglasses]
+
+The UV Index element on the page requires another API call because it does not return the data on the Current Day Weather call. In order for this API call to work the latitude and the longitude from the first call is pulled and then used to the UV API Call. In order for theses call to succeed they have been nested.
 
 
 ## Live Link 
 
-Weather Dashboard [https://buildgal.github.io/WeatherDashboard/]
+Weather Dashboard [https://buildgal.github.io/WeatherDashboard/]as
 
 ## Screenshot 
 ![image](./Assets/screenshot.png)
