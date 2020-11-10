@@ -44,4 +44,4 @@ The UV Index element on the page requires another API call because it does not r
 Weather Dashboard [https://buildgal.github.io/WeatherDashboard/]as
 
 ## Screenshot 
-![image](./Assets/screenshot.png)
+![image](../Assets/screenshot.png)
