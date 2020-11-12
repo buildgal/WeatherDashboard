@@ -31,7 +31,7 @@ searchBtn.on("click", function(event) {
 
 //API CALL TO BRING BACK THE CURRENT DAY'S WEATHER 
     let apiKey="afde9c2bc8e7dd302ea99cab374498c7";
-    let queryURL="http://api.openweathermap.org/data/2.5/weather?q="+
+    let queryURL="https://api.openweathermap.org/data/2.5/weather?q="+
     city+"&appid="+
     apiKey+"&units=standard";
    
@@ -64,14 +64,14 @@ searchBtn.on("click", function(event) {
         //setting the Current Day's Weather Icon
         let elwIcon=$(".weatherIMG");
         let datawIcon=response.weather[0].icon;
-        let weatherImg="http://openweathermap.org/img/wn/"+datawIcon+"@2x.png";
+        let weatherImg="https://openweathermap.org/img/wn/"+datawIcon+"@2x.png";
         elwIcon.attr("src", weatherImg);
 
  //making the call to get the UV INDEX
         let lat=response.coord.lat;      
         let lon=response.coord.lon;
 
-        let uvURL="http://api.openweathermap.org/data/2.5/uvi?lat="+lat+"&lon="+lon+"&appid="+apiKey;
+        let uvURL="https://api.openweathermap.org/data/2.5/uvi?lat="+lat+"&lon="+lon+"&appid="+apiKey;
         console.log(uvURL);
 
         $.ajax({
@@ -100,10 +100,10 @@ searchBtn.on("click", function(event) {
     })
 
 //5 DAY FORCAST 
-    let forcastURL="http://api.openweathermap.org/data/2.5/forecast?q="+
+    let forcastURL="https://api.openweathermap.org/data/2.5/forecast?q="+
     city+"&appid="+
     apiKey+"&units=standard";
-    iconUrl="http://openweathermap.org/img/wn/";
+    iconUrl="https://openweathermap.org/img/wn/";
 
 
     $.ajax({
