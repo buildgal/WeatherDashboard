@@ -47,4 +47,4 @@ Weather Dashboard [https://buildgal.github.io/WeatherDashboard/]
 
 
 ## Screenshot 
-![image](../Assets/screenshot.png)
+![image](./Assets/screenshot.png)
