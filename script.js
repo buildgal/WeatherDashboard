@@ -223,3 +223,4 @@ searchBtn.on("click", function(event) {
 
 //figure out how to make this all into a loop to reduce the 300 lines of code 
 //will need to change the code here
+//one more change right here to add the 20 commmits 
